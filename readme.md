@@ -22,10 +22,10 @@ System Requirements
 Setup
 =====
 1. Register in Environment Variables paths
-	Apps
-		- Ngrok
-		- Traefik
-	Steps
+	1. Apps
+		1. Ngrok
+		2. Traefik
+	2. Steps
 		1. From start menu, search and select "edit the system environment variables"
 		2. Click "Environment Variables" button
 		3. In the System Variables section, select variable "Path", then Click Edit
@@ -33,9 +33,9 @@ Setup
 		5. Specify the Directory path of your .exe or batch file
 		6. Click OK on each open window and restart the command prompt.
 2. Firewall
-	- Windows > Search "Firewall" > "Check Firewall Status"
-	- "Turn Windows Defender on or off" (left)
-	- Turn off public and private networks
+	1. Windows > Search "Firewall" > "Check Firewall Status"
+	2. "Turn Windows Defender on or off" (left)
+	3. Turn off public and private networks
 3. Update 
 	1. IP addresses and ports in 
 		- Identity 
@@ -91,13 +91,13 @@ Run
 			2. Create New Record
 			3. In the UserNeuronId column, enter the User Neuron Id from #2
 			4. In the RegionNeuronId column, enter the Neuron Id of the Region
-			5. In the WriteLevel column, enter
-				0 - no write access
-				1 - write to neurons created by the user only
-				2 - write to neurons created by all users
-			6. In the CanRead column, enter
-				0 - no read access
-				1 - read neurons
+			5. In the WriteLevel column, enter:
+				- "0" - no write access
+				- "1" - write to neurons created by the user only
+				- "2" - write to neurons created by all users
+			6. In the CanRead column, enter:
+				- "0" - no read access
+				- "1" - read neurons
 
 Install SSL Certificate 
 -----------------------
