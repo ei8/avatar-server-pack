@@ -1,0 +1,46 @@
+defaultEntryPoints = ["http9394"]
+
+[entryPoints]
+  [entryPoints.http9394]
+  address = ":9394"
+[file]
+[backends]
+  [backends.sample]
+    [backends.sample.servers.avatar]
+    url = "http://192.168.8.131:60013"
+
+  [backends.backend3]
+    [backends.backend3.servers.server1]
+    url = "http://localhost:8529"
+
+  [backends.backend4]
+    [backends.backend4.servers.server1]
+    url = "http://localhost:9393"
+[frontends]
+  [frontends.sample]
+  backend = "sample"
+  entrypoints = ["http9394"]
+    [frontends.sample.routes.test_1]
+    rule = "PathPrefixStrip:/avatars/sample"
+
+  [frontends.frontend4]
+  backend = "backend3"
+  entrypoints = ["http9394"]
+    [frontends.frontend4.routes.test_1]
+    rule = "PathPrefixStrip:/cortex/graph/db"
+  [frontends.frontend5]
+  backend = "backend3"
+  entrypoints = ["http9394"]
+    [frontends.frontend5.routes.test_1]
+    rule = "PathPrefix:/_db/"
+
+  [frontends.frontend6]
+  backend = "backend4"
+  entrypoints = ["http9394"]
+    [frontends.frontend6.routes.test_1]
+    rule = "PathPrefix:/account,/Account,/connect,/lib,/css,/Home,/js,/.well-known"
+  [frontends.frontend9]
+  backend = "backend4"
+  entrypoints = ["http9394"]
+    [frontends.frontend9.routes.test_1]
+    rule = "PathPrefix:/cortex/diary/callback"

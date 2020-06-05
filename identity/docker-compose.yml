@@ -1,0 +1,13 @@
+version: '3'
+
+services:   
+  identity.api:
+    image: ei8works/identity.api:0.1.6
+    env_file:
+      - ./variables.env
+    expose:
+      - "80"
+    ports:
+      - ${HOST_IP}:9393:80
+    volumes:
+      - ./:/C/db

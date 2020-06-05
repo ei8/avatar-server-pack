@@ -1,0 +1,13 @@
+authtoken: [authtoken value]
+tunnels:
+  neurulstaging:
+    proto: http
+    addr: 192.168.8.110:9111
+    subdomain: neurul.staging
+  neurul:
+    proto: http
+    addr: 192.168.8.110:9393
+    subdomain: neurul
+  remote:
+    proto: tcp
+    addr: 192.168.8.110:3389
