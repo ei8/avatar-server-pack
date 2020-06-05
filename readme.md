@@ -37,14 +37,19 @@ Setup
 	2. "Turn Windows Defender on or off" (left)
 	3. Turn off public and private networks
 3. Update 
-	1. IP addresses and ports in 
+	1. Settings
 		- Identity 
-			- .env
-			- variables.env
+			- IP addresses and ports
+				- .env
+				- variables.env
 		- Avatar
-			- .env
-			- users.db
-				- Resource (table)
+			- IP addresses and ports
+				- .env
+				- users.db
+					- Resource (table)
+			- Cortex Graph database name
+				- variables.env
+					- DB_NAME should be distinct from DB_NAME values of other Avatars in the same Server
 	2. Traefik.toml
 		- Avatar Backend
 			- Host IP 
