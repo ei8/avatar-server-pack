@@ -76,7 +76,7 @@ services:
     environment:
       - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
   cortex.diary.nucleus.in.api:
-    image: ei8works/cortex.diary.nucleus.in.api:0.1.6
+    image: ei8works/cortex.diary.nucleus.in.api:0.1.7
     expose:
       - "80"
     environment:
@@ -90,7 +90,7 @@ services:
       - AGGREGATE_OUT_BASE_URL=http://data.aggregate.out.api:80
       - IDENTITY_ACCESS_OUT_BASE_URL=http://cortex.identityaccess.out.api:80
   cortex.diary.nucleus.out.api:
-    image: ei8works/cortex.diary.nucleus.out.api:0.1.6
+    image: ei8works/cortex.diary.nucleus.out.api:0.1.7
     expose:
       - "80"
     environment:
