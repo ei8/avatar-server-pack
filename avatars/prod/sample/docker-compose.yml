@@ -112,7 +112,7 @@ services:
       - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
       - IDENTITY_ACCESS_OUT_BASE_URL=http://cortex.identityaccess.out.api:80
   avatar.in.api:
-    image: ei8works/avatar.in.api:0.1.10
+    image: ei8works/avatar.in.api:0.1.11
     env_file:
       - ./variables.env
     expose:
