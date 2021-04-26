@@ -1,13 +1,14 @@
 authtoken: [authtoken value]
 tunnels:
-  neurulstaging:
+  idp-neurul:
     proto: http
-    addr: 192.168.8.110:9111
-    subdomain: neurul.staging
+    addr: https://192.168.1.110:61700
+    subdomain: idp-neurul
   neurul:
     proto: http
-    addr: 192.168.8.110:9393
+    addr: 192.168.1.110:9393
     subdomain: neurul
-  remote:
-    proto: tcp
-    addr: 192.168.8.110:3389
+  d23-neurul:
+    proto: http
+    addr: https://192.168.1.110:64000
+    subdomain: d23-neurul
