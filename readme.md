@@ -73,10 +73,13 @@ Run
 			- ngrok start -config ngrok.yml neurul [other tunnels]
 	- Containers
 		- Identity
-			- c:\ei8\identity
+			- c:\ei8\idp
 				- docker-compose -f docker-compose.yml up
 		- Avatar
 			- C:\ei8\avatars\prod\[avatar name]
+				- docker-compose -f docker-compose.yml up
+		- d23
+			- C:\ei8\d23
 				- docker-compose -f docker-compose.yml up
 		! Run from Powershell to clear all running containers
 			- docker rm --force $(docker ps -aq)
