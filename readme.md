@@ -70,7 +70,7 @@ Run
 			- traefik -c traefik.toml
 	- Ngrok
 		- Go to C:\ei8\ 
-			- ngrok start -config ngrok.yml neurul [other tunnels]
+			- ngrok start -config ngrok.yml neurul idp-neurul d23-neurul
 	- Containers
 		- Identity
 			- c:\ei8\idp
