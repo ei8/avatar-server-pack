@@ -10,5 +10,6 @@ services:
       - "64000"
     volumes:
       - ~/.aspnet/https:/https:ro
+      - /C/ei8/d23:/C/db
     ports:
       - ${D23_IP}:${D23_BLAZOR_PORT}:64000
