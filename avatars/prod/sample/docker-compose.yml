@@ -132,3 +132,15 @@ services:
       - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
     volumes:
       - ./:/C/db
+  d23.api:
+    image: ei8works/d23.api:0.1.7
+    env_file:
+      - ./d23-variables.env
+    expose:
+      - "80"
+      - "64000"
+    volumes:
+      - ~/.aspnet/https:/https:ro
+      - ./:/C/db
+    ports:
+      - ${D23_IP}:${D23_BLAZOR_PORT}:64000
