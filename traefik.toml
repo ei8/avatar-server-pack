@@ -10,13 +10,14 @@ address = ":8080"
 [entryPoints]
   [entryPoints.http]
   address = ":9393"
+
 [file]
 [frontends]
   [frontends.sample]
   backend = "sample"
   entrypoints = ["http"]
     [frontends.sample.routes.test_1]
-    rule = "PathPrefixStrip:/avatars/sample"
+    rule = "Host:sample.eb.neurul.net"
 
 [backends]
   [backends.sample]

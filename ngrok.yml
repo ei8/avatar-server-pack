@@ -1,14 +1,15 @@
 authtoken: [authtoken value]
+region: au
 tunnels:
-  idp-neurul:
-    proto: http
-    addr: https://192.168.1.110:61700
-    subdomain: idp-neurul
-  neurul:
-    proto: http
+  avatars:
     addr: 192.168.1.110:9393
-    subdomain: neurul
-  d23-neurul:
     proto: http
+    hostname: "*.eb.neurul.net"
+  idp-sample:
+    addr: https://192.168.1.110:61700
+    proto: http
+    hostname: idp-sample.eb.neurul.net
+  d23-sample:
     addr: https://192.168.1.110:64000
-    subdomain: d23-neurul
+    proto: http
+    hostname: d23-sample.eb.neurul.net
