@@ -138,21 +138,21 @@ services:
       - ./d23-variables.env
     expose:
       - "80"
-      - "64000"
+      - "${D23_BLAZOR_PORT}"
     volumes:
       - ~/.aspnet/https:/https:ro
       - ./:/C/db
     ports:
-      - ${D23_IP}:${D23_BLAZOR_PORT}:64000
+      - ${D23_IP}:${D23_BLAZOR_PORT}:${D23_BLAZOR_PORT}
   idp.api:
     image: ei8works/idp.api:0.1.4
     env_file:
       - ./idp-variables.env
     expose:
       - "80"
-      - "61700"
+      - "${HOST_PORT}"
     ports:
-      - ${HOST_IP}:${HOST_PORT}:61700
+      - ${HOST_IP}:${HOST_PORT}:${HOST_PORT}
     volumes:
       - ./:/C/db
       - ~/.aspnet/https:/https:ro
