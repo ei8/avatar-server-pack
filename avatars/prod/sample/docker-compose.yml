@@ -104,7 +104,7 @@ services:
       - AGGREGATE_OUT_BASE_URL=http://data.aggregate.out.api:80
       - IDENTITY_ACCESS_OUT_BASE_URL=http://cortex.identityaccess.out.api:80
   cortex.library.out.api:
-    image: ei8works/cortex.library.out.api:0.1.4
+    image: ei8works/cortex.library.out.api:0.1.5
     expose:
       - "80"
     environment:
@@ -133,7 +133,7 @@ services:
     volumes:
       - ./:/C/db
   d23.api:
-    image: ei8works/d23.api:0.1.7
+    image: ei8works/d23.api:0.1.8
     env_file:
       - ./d23-variables.env
     expose:
