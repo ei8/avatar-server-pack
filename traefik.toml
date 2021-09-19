@@ -22,4 +22,4 @@ address = ":8080"
 [backends]
   [backends.sample]
     [backends.sample.servers.server1]
-    url = "http://192.168.1.110:61600"
+    url = "http://192.168.1.110:64001"
