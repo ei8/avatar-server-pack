@@ -13,13 +13,21 @@ address = ":8080"
 
 [file]
 [frontends]
-  [frontends.sample]
-  backend = "sample"
+  [frontends.sampleavatar]
+  backend = "sampleavatar"
   entrypoints = ["http"]
-    [frontends.sample.routes.test_1]
-    rule = "Host:sample.eb.neurul.net"
+    [frontends.sampleavatar.routes.test_1]
+    rule = "PathPrefixStrip:/sample/"
+  [frontends.samplenc]
+  backend = "samplenc"
+  entrypoints = ["http"]
+    [frontends.samplenc.routes.test_1]
+    rule = "PathPrefixStrip:/sample/nc"
 
 [backends]
-  [backends.sample]
-    [backends.sample.servers.server1]
-    url = "http://192.168.1.110:64001"
+  [backends.sampleavatar]
+    [backends.sampleavatar.servers.server1]
+    url = "http://192.168.1.109:64101"
+  [backends.samplenc]
+    [backends.samplenc.servers.server1]
+    url = "http://192.168.1.109:64103"
