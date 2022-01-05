@@ -132,7 +132,7 @@ services:
       - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
       - IDENTITY_ACCESS_OUT_BASE_URL=http://cortex.identityaccess.out.api:80
   avatar.in.api:
-    image: ei8works/avatar.in.api:0.1.13
+    image: ei8works/avatar.in.api:0.1.14
     env_file:
       - ./variables.env
     expose:
@@ -153,26 +153,17 @@ services:
     volumes:
       - ./:/C/db
   d23.api:
-    image: ei8works/d23.api:0.1.10
+    image: ei8works/d23.api:0.1.11
     env_file:
       - ./d23-variables.env
     expose:
       - "80"
       - "${D23_BLAZOR_PORT}"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:${D23_BLAZOR_PORT};http://+:80
     volumes:
       - ~/.aspnet/https:/https:ro
       - ./:/C/db
     ports:
       - ${D23_IP}:${D23_BLAZOR_PORT}:${D23_BLAZOR_PORT}
-  idp.api:
-    image: ei8works/idp.api:0.1.4
-    env_file:
-      - ./idp-variables.env
-    expose:
-      - "80"
-      - "${HOST_PORT}"
-    ports:
-      - ${HOST_IP}:${HOST_PORT}:${HOST_PORT}
-    volumes:
-      - ./:/C/db
-      - ~/.aspnet/https:/https:ro
