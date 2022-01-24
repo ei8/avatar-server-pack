@@ -17,62 +17,6 @@ services:
       - "80"
     volumes:
       - ./:/C/db
-  data.aggregate.in.api:
-    image: ei8works/data.aggregate.in.api:0.1.2
-    expose:
-      - "80"
-    environment:
-      - EVENT_SOURCING_IN_BASE_URL=http://eventsourcing.in.api:80
-      - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
-  data.aggregate.out.api:
-    image: ei8works/data.aggregate.out.api:0.1.2
-    expose:
-      - "80"
-    environment:
-      - EVENT_SOURCING_IN_BASE_URL=http://eventsourcing.in.api:80
-      - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
-  data.tag.in.api:
-    image: ei8works/data.tag.in.api:0.1.2
-    expose:
-      - "80"
-    environment:
-      - EVENT_SOURCING_IN_BASE_URL=http://eventsourcing.in.api:80
-      - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
-  data.tag.out.api:
-    image: ei8works/data.tag.out.api:0.1.2
-    expose:
-      - "80"
-    environment:
-      - EVENT_SOURCING_IN_BASE_URL=http://eventsourcing.in.api:80
-      - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
-  data.externalreference.in.api:
-    image: ei8works/data.externalreference.in.api:0.1.0
-    expose:
-      - "80"
-    environment:
-      - EVENT_SOURCING_IN_BASE_URL=http://eventsourcing.in.api:80
-      - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
-  data.externalreference.out.api:
-    image: ei8works/data.externalreference.out.api:0.1.0
-    expose:
-      - "80"
-    environment:
-      - EVENT_SOURCING_IN_BASE_URL=http://eventsourcing.in.api:80
-      - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
-  cortex.in.api:
-    image: neurul/cortex.in.api:0.2.12
-    expose:
-      - "80"
-    environment:
-      - EVENT_SOURCING_IN_BASE_URL=http://eventsourcing.in.api:80
-      - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
-  cortex.out.api:
-    image: neurul/cortex.out.api:0.2.11
-    expose:
-      - "80"
-    environment:
-      - EVENT_SOURCING_IN_BASE_URL=http://eventsourcing.in.api:80
-      - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
   cortex.graph.in.api:
     image: ei8works/cortex.graph.in.api:0.2.18
     env_file:
@@ -90,37 +34,23 @@ services:
     environment:
       - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
   cortex.diary.nucleus.in.api:
-    image: ei8works/cortex.diary.nucleus.in.api:0.1.10
+    image: ei8works/cortex.diary.nucleus.in.api:0.1.11
     expose:
       - "80"
     environment:
-      - CORTEX_IN_BASE_URL=http://cortex.in.api:80
-      - CORTEX_OUT_BASE_URL=http://cortex.out.api:80
       - CORTEX_GRAPH_OUT_BASE_URL=http://cortex.graph.out.api:80
+      - EVENT_SOURCING_IN_BASE_URL=http://eventsourcing.in.api:80
       - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
-      - TAG_IN_BASE_URL=http://data.tag.in.api:80
-      - TAG_OUT_BASE_URL=http://data.tag.out.api:80
-      - AGGREGATE_IN_BASE_URL=http://data.aggregate.in.api:80
-      - AGGREGATE_OUT_BASE_URL=http://data.aggregate.out.api:80
       - IDENTITY_ACCESS_OUT_BASE_URL=http://cortex.identityaccess.out.api:80
-      - EXTERNAL_REFERENCE_IN_BASE_URL=http://data.externalreference.in.api:80
-      - EXTERNAL_REFERENCE_OUT_BASE_URL=http://data.externalreference.out.api:80
   cortex.diary.nucleus.out.api:
-    image: ei8works/cortex.diary.nucleus.out.api:0.1.10
+    image: ei8works/cortex.diary.nucleus.out.api:0.1.11
     expose:
       - "80"
     environment:
-      - CORTEX_IN_BASE_URL=http://cortex.in.api:80
-      - CORTEX_OUT_BASE_URL=http://cortex.out.api:80
       - CORTEX_GRAPH_OUT_BASE_URL=http://cortex.graph.out.api:80
+      - EVENT_SOURCING_IN_BASE_URL=http://eventsourcing.in.api:80
       - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
-      - TAG_IN_BASE_URL=http://data.tag.in.api:80
-      - TAG_OUT_BASE_URL=http://data.tag.out.api:80
-      - AGGREGATE_IN_BASE_URL=http://data.aggregate.in.api:80
-      - AGGREGATE_OUT_BASE_URL=http://data.aggregate.out.api:80
       - IDENTITY_ACCESS_OUT_BASE_URL=http://cortex.identityaccess.out.api:80
-      - EXTERNAL_REFERENCE_IN_BASE_URL=http://data.externalreference.in.api:80
-      - EXTERNAL_REFERENCE_OUT_BASE_URL=http://data.externalreference.out.api:80
   cortex.library.out.api:
     image: ei8works/cortex.library.out.api:0.1.9
     env_file:
