@@ -18,7 +18,7 @@ services:
     volumes:
       - ./:/C/db
   cortex.graph.in.api:
-    image: ei8works/cortex.graph.in.api:0.2.18
+    image: ei8works/cortex.graph.in.api:0.3.0
     env_file:
       - ./variables.env
     expose:
@@ -26,7 +26,7 @@ services:
     environment:
       - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
   cortex.graph.out.api:
-    image: ei8works/cortex.graph.out.api:0.2.19
+    image: ei8works/cortex.graph.out.api:0.3.0
     env_file:
       - ./variables.env
     expose:
