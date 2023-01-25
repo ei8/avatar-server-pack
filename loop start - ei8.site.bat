@@ -1,0 +1,3 @@
+@echo off
+@echo Loop-starting ... 
+FOR /L %%N IN () DO call "start - ei8.site.bat"

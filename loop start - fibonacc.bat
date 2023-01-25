@@ -1,3 +1,0 @@
-@echo off
-@echo Loop-starting ... 
-FOR /L %%N IN () DO call "start - fibonacc.bat"

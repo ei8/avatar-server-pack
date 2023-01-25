@@ -1,9 +1,0 @@
-authtoken: [authtoken value]
-region: au
-tunnels:
-  sample:
-    # forward all to traefik
-    addr: 192.168.1.109:9393
-    # ensure to use https protocol as this will forcibly set the x-forwarded-proto which is used by
-    # services (eg. diary)
-    proto: http
