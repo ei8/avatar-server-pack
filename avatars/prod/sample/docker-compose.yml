@@ -17,6 +17,14 @@ services:
       - "80"
     volumes:
       - ./:/C/db
+  cortex.graph.persistence:
+    image: arangodb:3.11.3
+    ports:
+      - "8529:8529"
+    volumes:
+      - ./arangodb/:/var/lib/arangodb3
+    env_file:
+      - ./variables.env
   cortex.graph.in.api:
     image: ei8works/cortex.graph.in.api:0.3.1
     env_file:
