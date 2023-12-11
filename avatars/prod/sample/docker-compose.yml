@@ -129,3 +129,27 @@ services:
       - ./:/C/db
     ports:
       - ${D23_IP}:${D23_BLAZOR_PORT}:${D23_BLAZOR_PORT}
+  cortex.chat.nucleus.in.api:
+    image: ei8io/cortex.chat.nucleus.in.api:0.1.4
+    env_file:
+      - ./variables.env
+    expose:
+      - "80"
+    environment:
+      - CORTEX_LIBRARY_OUT_BASE_URL=http://cortex.library.out.api:80
+      - EVENT_SOURCING_IN_BASE_URL=http://eventsourcing.in.api:80
+      - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
+      - IDENTITY_ACCESS_IN_BASE_URL=http://cortex.identityaccess.in.api:80
+      - IDENTITY_ACCESS_OUT_BASE_URL=http://cortex.identityaccess.out.api:80
+  cortex.chat.nucleus.out.api:
+    image: ei8io/cortex.chat.nucleus.out.api:0.1.4
+    env_file:
+      - ./variables.env
+    expose:
+      - "80"
+    environment:
+      - CORTEX_LIBRARY_OUT_BASE_URL=http://cortex.library.out.api:80
+      - EVENT_SOURCING_IN_BASE_URL=http://eventsourcing.in.api:80
+      - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
+      - IDENTITY_ACCESS_IN_BASE_URL=http://cortex.identityaccess.in.api:80
+      - IDENTITY_ACCESS_OUT_BASE_URL=http://cortex.identityaccess.out.api:80
