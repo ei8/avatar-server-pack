@@ -25,24 +25,35 @@ services:
       - ./arangodb/:/var/lib/arangodb3
     env_file:
       - ./variables.env
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://127.0.0.1:8529 || exit 1
+      interval: 3s
+      timeout: 3s
+      retries: 10
   cortex.graph.in.api:
-    image: ei8works/cortex.graph.in.api:0.3.1
+    image: ei8io/cortex.graph.in.api:0.3.3
     env_file:
       - ./variables.env
     expose:
       - "80"
     environment:
       - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
+    depends_on:
+      "cortex.graph.persistence":
+        condition: service_healthy
   cortex.graph.out.api:
-    image: ei8works/cortex.graph.out.api:0.3.1
+    image: ei8io/cortex.graph.out.api:0.3.3
     env_file:
       - ./variables.env
     expose:
       - "80"
     environment:
       - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
+    depends_on:
+      "cortex.graph.persistence":
+        condition: service_healthy
   cortex.diary.nucleus.in.api:
-    image: ei8works/cortex.diary.nucleus.in.api:0.2.3
+    image: ei8works/cortex.diary.nucleus.in.api:0.2.5
     env_file:
       - ./variables.env
     expose:
@@ -56,7 +67,7 @@ services:
       - SUBSCRIPTIONS_IN_BASE_URL=http://cortex.subscriptions.in.api:80
       - SUBSCRIPTIONS_OUT_BASE_URL=http://cortex.subscriptions.out.api:80
   cortex.diary.nucleus.out.api:
-    image: ei8works/cortex.diary.nucleus.out.api:0.2.3
+    image: ei8works/cortex.diary.nucleus.out.api:0.2.5
     env_file:
       - ./variables.env
     expose:
@@ -89,8 +100,19 @@ services:
       - ./:/C/db
     ports:
       - ${AVATAR_IP}:${AVATAR_IN_PORT}:80
+  cortex.identityaccess.in.api:
+    image: ei8works/cortex.identityaccess.in.api:0.2.3
+    env_file: 
+      - ./variables.env
+    expose:
+      - "80"
+    environment:
+      - CORTEX_GRAPH_OUT_BASE_URL=http://cortex.graph.out.api:80
+      - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
+    volumes:
+      - ./:/C/db
   cortex.identityaccess.out.api:
-    image: ei8works/cortex.identityaccess.out.api:0.2.1
+    image: ei8works/cortex.identityaccess.out.api:0.2.3
     env_file: 
       - ./variables.env
     expose:
