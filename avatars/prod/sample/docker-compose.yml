@@ -139,7 +139,7 @@ services:
     volumes:
       - ./:/C/db
   d23.api:
-    image: ei8works/d23.api:0.3.8
+    image: ei8io/d23.api:0.3.9
     env_file:
       - ./d23-variables.env
     expose:
