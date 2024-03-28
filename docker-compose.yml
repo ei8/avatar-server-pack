@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  traefik:
+    image: traefik:v1.7
+    command: -c /traefik.toml
+    ports:
+      - "9393:9393"
+      - "8080:8080"
+    volumes:
+      - ./traefik.toml:/traefik.toml
+      - /var/run/docker.sock:/var/run/docker.sock
